@@ -21,10 +21,20 @@ export function SignIn() {
   } = useForm<SignInform>()
 
   async function handleSignIn(data: SignInform) {
-    console.log(data)
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 2000))
 
-    toast.success('enviamenos um link de alternticação para seu e-mail')
+      toast.success('enviamenos um link de alternticação para seu e-mail', {
+        action: {
+          label: 'Reenviar',
+          onClick: () => {
+            handleSignIn(data)
+          },
+        },
+      })
+    } catch (error) {
+      toast.error('Credenciais Incorretas')
+    }
   }
 
   return (
