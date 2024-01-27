@@ -1,33 +1,42 @@
+import { Search, X } from 'lucide-react'
+
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 import {
-  Table,
-  TableBody,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table'
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 
-import { OrdersTableRow } from './order-table-row'
-
-export function OrderTbleFilters() {
+export function OrderTableFilters() {
   return (
-    <Table>
-      <TableHeader>
-        <TableRow>
-          <TableHead className="w-[64px]"></TableHead>
-          <TableHead className="w-[140px]">Identificador</TableHead>
-          <TableHead className="w-[180px]">Realizado há</TableHead>
-          <TableHead className="w-[140px]">Status</TableHead>
-          <TableHead>Cliente</TableHead>
-          <TableHead className="w-[140px]">Total do pedido</TableHead>
-          <TableHead className="w-[164px]"></TableHead>
-          <TableHead className="w-[132px]"></TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {Array.from({ length: 10 }).map((_, i) => {
-          return <OrdersTableRow key={i} />
-        })}
-      </TableBody>
-    </Table>
+    <form className="flex items-center gap-2">
+      <span className="text-sm font-semibold">Filtros:</span>
+      <Input placeholder="ID do pedido" className="h-8 w-auto" />
+      <Input placeholder="Nome do cliente" className="h-8 w-[320px]" />
+      <Select defaultValue="all">
+        <SelectTrigger className="h-8 w-[180px]">
+          <SelectValue />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem value="all">Todos status</SelectItem>
+          <SelectItem value="pending">Pendente</SelectItem>
+          <SelectItem value="canceled">Cancelado</SelectItem>
+          <SelectItem value="processing">Em preparo</SelectItem>
+          <SelectItem value="delivering">Em entrega</SelectItem>
+          <SelectItem value="delivered">Entregue</SelectItem>
+        </SelectContent>
+      </Select>
+      <Button variant="secondary" size="xs" type="submit">
+        <Search className="mr-2 h-4 w-4" />
+        Filtrar resultados
+      </Button>
+      <Button variant="outline" size="xs" type="button">
+        <X className="mr-2 h-4 w-4" />
+        Remover filtros
+      </Button>
+    </form>
   )
 }

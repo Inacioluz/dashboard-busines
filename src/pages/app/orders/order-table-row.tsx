@@ -15,7 +15,7 @@ export function OrdersTableRow() {
       <TableCell className="font-nono text-xs font-medium">
         iuovbsergbeorh0sd
       </TableCell>
-      <TableCell className="text-nuted-foreground">há 20 minutos</TableCell>
+      <TableCell className="text-muted-foreground">há 20 minutos</TableCell>
       <TableCell>
         <div className="flex items-center gap-2">
           <span className="h-2 w-2 rounded-full bg-slate-400" />
@@ -25,13 +25,13 @@ export function OrdersTableRow() {
       <TableCell className="font-medium">Inacio Luz Silva</TableCell>
       <TableCell className="font-medium">R$ 199,99</TableCell>
       <TableCell>
-        <Button className="outline" size="xs">
+        <Button variant="outline" size="xs">
           <ArrowRight className="mr-2 h-3 w-3" />
           Aprovar
         </Button>
       </TableCell>
       <TableCell>
-        <Button className="ghost" size="xs">
+        <Button variant="ghost" size="xs">
           <X className="mr-2 h-3 w-3" />
           Cancelar
         </Button>
