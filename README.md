@@ -1,17 +1,17 @@
 
-# Título do Projeto
+# Hash Business
 
-Uma breve descrição sobre o que esse projeto faz e para quem ele é
+esse foi um projeto que desenvolvi com o objetivo de analisar dados e controlar pedidos, podendo funcionar até como um SaaS. ele controla pedidos dando opções para classifica-los e mostrar os dados de forma clara e objetiva
 
 
 ## Demonstração
 
-Insira um gif ou um link de alguma demonstração
+![image](https://github.com/Inacioluz/dashboard-busines/assets/108021488/3dce39f4-ac18-46b1-9541-08f5dae5ecda)
 
 
 ## Stack utilizada
 
-**Front-end:** React, Redux, TailwindCSS
+**Front-end:** React, TypeScript, TailwindCSS, shadcn/ui 
 
 **Back-end:** Node, Express
 
