@@ -6,7 +6,17 @@ import { TableCell, TableRow } from '@/components/ui/table'
 
 import { OrderDetails } from './order-details'
 
-export function OrdersTableRow() {
+interface OrderTableRowProps {
+  order: {
+    orderId: string
+    createdAt: string
+    status: 'pending' | 'canceled' | 'processing' | 'delivering' | 'delivered'
+    customerName: string
+    total: number
+  }
+}
+
+export function OrdersTableRow({ order }: OrderTableRowProps) {
   return (
     <TableRow>
       <TableCell>
@@ -22,7 +32,7 @@ export function OrdersTableRow() {
         </Dialog>
       </TableCell>
       <TableCell className="font-mono text-xs font-medium">
-        iuovbsergbeorh0sd
+        {order.orderId}
       </TableCell>
       <TableCell className="text-muted-foreground">há 20 minutos</TableCell>
       <TableCell>
