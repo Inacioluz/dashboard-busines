@@ -11,8 +11,8 @@ import {
   TableRow,
 } from '@/components/ui/table'
 
+import { OrderTableRow } from '../orders/order-table-row'
 import { OrderTableFilters } from './order-table-filters'
-import { OrdersTableRow } from './order-table-row'
 
 export function Orders() {
   const { data: result } = useQuery({
@@ -45,7 +45,7 @@ export function Orders() {
               <TableBody>
                 {result &&
                   result.orders.map((order) => {
-                    return <OrdersTableRow key={order.orderId} order={order} />
+                    return <OrderTableRow key={order.orderId} order={order} />
                   })}
               </TableBody>
             </Table>
