@@ -17,7 +17,7 @@ import { OrderTableFilters } from './order-table-filters'
 export function Orders() {
   const { data: result } = useQuery({
     queryKey: ['order'],
-    queryFn: getOrders,
+    queryFn: () => getOrders({ pageIndex: 0 }),
   })
 
   return (
