@@ -30,20 +30,22 @@ export function OrderTableRow({ order }: OrderTableRowProps) {
   const { mutateAsync: cancelOrderFn } = useMutation({
     mutationFn: cancelOrder,
     async onSuccess(_, { orderId }) {
-      const orderListCache = queryClient.getQueriesData<GetOrdersResponse>({
+      const ordersListCache = queryClient.getQueriesData<GetOrdersResponse>({
         queryKey: ['orders'],
       })
 
-      orderListCache.forEach(([cacheKey, cacheData]) => {
+      ordersListCache.forEach(([cacheKey, cacheData]) => {
         if (!cacheData) {
           return
         }
+
         queryClient.setQueryData<GetOrdersResponse>(cacheKey, {
           ...cacheData,
           orders: cacheData.orders.map((order) => {
             if (order.orderId === orderId) {
               return { ...order, status: 'canceled' }
             }
+
             return order
           }),
         })
@@ -92,7 +94,7 @@ export function OrderTableRow({ order }: OrderTableRowProps) {
       </TableCell>
       <TableCell>
         <Button
-          disabled={['peding', 'processing'].includes(order.status)}
+          disabled={!['pending', 'processing'].includes(order.status)}
           onClick={() => cancelOrderFn({ orderId: order.orderId })}
           variant="ghost"
           size="xs"
