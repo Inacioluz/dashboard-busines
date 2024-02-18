@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:test":"vite --port 4552 --mode test",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
@@ -27,6 +28,7 @@
     "clsx": "^2.1.0",
     "date-fns": "^3.3.1",
     "dlx": "^0.2.1",
+    "env": "^0.0.2",
     "localforage": "^1.10.0",
     "lucide-react": "^0.314.0",
     "match-sorter": "^6.3.3",
