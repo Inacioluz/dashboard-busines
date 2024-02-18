@@ -1,4 +1,5 @@
 import { Home, Landmark, UtensilsCrossed } from 'lucide-react'
+import React from 'react'
 
 import { AccountMenu } from './account-menu'
 import { NavLink } from './nav-link'
